@@ -5,22 +5,28 @@ const sentence = document.querySelector("#sentence"),
     submitButton = document.querySelector("#submitButton"),
     printHere = document.querySelector(".printHere")
 
-
+// Creates a paragraph element and append it to the elementToAppendTo argument
+const createParagraphAndAppend = (elementToAppendTo, textContent) => {
+    let paragraph = document.createElement("p")
+    paragraph.innerHTML = textContent
+    elementToAppendTo.appendChild(paragraph)
+}
 
 const addExcitementAndCreateElements = (wordsArray, punctuation, amountOfPunctuations) => {
     // let buildMeUp = ""
-    let counter = 1.
+    let counter = 1
     buildMeUp = ""
+    //loop through the wordsArray
     for (let index = 0; index < wordsArray.length; index++) {
-        let paragraph = document.createElement("p")
+        //check if counter is divisible by 3
         if (counter % 3 === 0) {
+            //add the punctuation the specified amount of times after the wordsArray index
             buildMeUp += `${wordsArray[index]}${punctuation.repeat(amountOfPunctuations)} `
-            paragraph.innerHTML = buildMeUp
-            printHere.appendChild(paragraph)
+            // create a paragraph element with the buildMeUp string and append it to printHere
+            createParagraphAndAppend(printHere, buildMeUp)
         } else {
             buildMeUp += `${wordsArray[index]} `
-            paragraph.innerHTML = buildMeUp
-            printHere.appendChild(paragraph)
+            createParagraphAndAppend(printHere, buildMeUp)
         }
         counter++
     }
@@ -28,9 +34,11 @@ const addExcitementAndCreateElements = (wordsArray, punctuation, amountOfPunctua
 
 
 
-
+//Listen for clicks on the submit button
 submitButton.addEventListener("click", (event) => {
+    // split the value of the user's sentence textarea into an array delimited by a space
     sentenceArray = sentence.value.split(" ")
+    // Call the addExcitementAndCreateElementsFunction
     addExcitementAndCreateElements(sentenceArray, punctuation.value, parseInt(numberOfPunctuations.value))
     // Prevent default form submit behavior
     event.preventDefault();
