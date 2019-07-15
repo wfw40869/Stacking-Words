@@ -3,13 +3,15 @@ let sentenceArray = ["The", "walrus", "danced", "through", "the", "trees", "in",
 
 const addExcitement = (wordsArray, punctuation, amountOfPunctuations) => {
     let buildMeUp = ""
+    let counter = 1
     for (let index = 0; index < wordsArray.length; index++) {
-        if (index !== 0 && index % 3 === 0) {
+        if (counter % 3 === 0) {
             buildMeUp += `${wordsArray[index]}${punctuation.repeat(amountOfPunctuations)} `;
         } else {
             buildMeUp += `${wordsArray[index]} `;
             console.log(buildMeUp);
         }
+        counter++
     }
 }
 
