@@ -7,6 +7,28 @@
     <title>Stacking Words</title>
 </head>
 <body>
+    <h1>Stacking Words</h1>
+    <form action="#" id="sentenceForm">
+        <fieldset>
+            <label for="sentence">Enter a sentence</label>
+            <textarea name="sentence" id="sentence" cols="25" rows="10" required></textarea>
+        </fieldset>
+        <fieldset>
+            <label for="punctuation">Enter a punctuation</label>
+            <input type="text" name="punctuation" id="punctuation" required>
+        </fieldset>
+        <fieldset>
+            <label for="numberOfPunctuations">Number of punctuations</label>
+            <input type="number" name="numberOfPunctuations" id="numberOfPunctuations" required>
+        </fieldset>
+        <fieldset>
+            <input type="submit" value="Print Sentence" id="submitButton">
+        </fieldset>
+    </form>
+
+    <div class="printHere">
+        <h2>New Sentence Result</h2>
+    </div>
     <script src="scripts/main.js"></script>
 </body>
 </html>
